@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson Player - EduLearn</title>
+  <meta name="description" content="Interactive lesson player for video, coding, reading and quiz modules." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body style="background: #0f172a; color: #f8fafc; overflow: hidden; height: 100vh;">
+
+  <div class="player-container">
+    <!-- Top Player Header -->
+    <header class="player-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="dashboard.html" class="btn btn-ghost btn-sm" style="color: #94a3b8; border: 1px solid #334155;">
+          &larr; Back to Dashboard
+        </a>
+        <div style="border-left: 1px solid #334155; padding-left: 1rem;">
+          <h2 style="font-size: 1.125rem; margin-bottom: 0.1rem; color: #f8fafc;" id="player-lesson-title">Lesson Title</h2>
+          <span style="font-size: 0.75rem; color: #94a3b8; letter-spacing: 0.05em;" id="player-lesson-type">VIDEO • 10 MINS</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button class="btn btn-secondary btn-sm" id="btn-prev-lesson">&larr; Previous</button>
+        <button class="btn btn-primary btn-sm" id="btn-mark-complete">Mark Complete & Next</button>
+        <button class="btn btn-secondary btn-sm" id="btn-next-lesson">Next &rarr;</button>
+      </div>
+    </header>
+
+    <!-- Main Body Layout: Screen on left, Sidebar on right -->
+    <div class="player-main">
+      <!-- Lesson Content Screen -->
+      <section class="player-content-area" aria-label="Lesson Screen">
+        <div id="player-screen-content" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <div style="text-align: center; color: #94a3b8;">
+            <p>Loading lesson media and materials...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sidebar Syllabus -->
+      <aside class="player-sidebar" aria-label="Course Syllabus">
+        <div class="player-sidebar-header">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.875rem; font-weight: 700; color: #f8fafc; text-transform: uppercase; letter-spacing: 0.05em;">Course Syllabus</span>
+            <span style="font-size: 0.875rem; font-weight: 700; color: #38bdf8;" id="player-progress-percent">0%</span>
+          </div>
+          <div class="progress-track" style="background: #334155; height: 6px;">
+            <div class="progress-fill" id="player-progress-fill" style="width: 0%; background: #38bdf8;"></div>
+          </div>
+        </div>
+
+        <ul class="player-sidebar-list" id="player-sidebar-list">
+          <!-- Dynamically populated via lesson-player.js -->
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Course Completion Celebration Modal -->
+  <div class="modal-overlay" id="modal-course-completed">
+    <div class="modal-dialog" style="max-width: 550px; text-align: center; color: var(--slate-900);">
+      <div class="modal-header" style="justify-content: center; border-bottom: none; padding-bottom: 0;">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: #dcfce7; color: #15803d; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto;">
+          🎉
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 1.5rem 2rem;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Congratulations!</h2>
+        <p style="color: var(--slate-600); margin-bottom: 1.5rem;">
+          You have successfully completed 100% of the lessons in this masterclass. Your verified certificate has been minted to your student account!
+        </p>
+        <div style="background: var(--slate-100); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; font-weight: bold; color: var(--slate-800); margin-bottom: 1.5rem;" id="completed-cert-code">
+          EDU-CERT-XXXXX
+        </div>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+          <a href="dashboard.html" class="btn btn-primary btn-md">Go to Dashboard</a>
+          <button class="btn btn-secondary btn-md" onclick="closeModal('modal-course-completed')">Keep Reviewing</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/lesson-player.js"></script>
+</body>
+</html>

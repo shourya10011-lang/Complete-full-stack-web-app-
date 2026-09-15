@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Details - EduLearn</title>
+  <meta name="description" content="Masterclass curriculum, syllabus, and student reviews." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand" id="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        <span>EduLearn</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Explore Courses</a></li>
+          <li><a href="courses.html?category=Web%20Development">Development</a></li>
+          <li><a href="courses.html?category=Data%20Science">Data Science</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-auth" id="navbar-auth">
+        <a href="login.html" class="btn btn-ghost btn-sm">Log In</a>
+        <a href="login.html?tab=signup" class="btn btn-primary btn-sm">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Course Detail Hero -->
+    <section class="course-detail-hero">
+      <div class="container">
+        <div style="font-size: 0.875rem; color: var(--slate-400); margin-bottom: 1rem;">
+          <a href="courses.html" style="color: var(--primary-100);">Courses</a> &gt; <span id="course-category-badge">Category</span>
+        </div>
+        <h1 id="course-title">Loading course title...</h1>
+        <p id="course-description">Loading course overview...</p>
+
+        <div class="course-hero-meta">
+          <span class="rating-stars" id="course-rating">★ 4.9 (0 reviews)</span>
+          <span>•</span>
+          <span id="course-students">0 students enrolled</span>
+          <span>•</span>
+          <span id="course-duration">0 total hours</span>
+          <span>•</span>
+          <span class="badge badge-category" id="course-difficulty" style="background: rgba(255,255,255,0.1); color: white;">BEGINNER</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content & Sticky Enroll Box Layout -->
+    <div class="container">
+      <div class="course-detail-layout">
+        <!-- Main Left Column: Tabs & Content -->
+        <div class="course-main-content">
+          <!-- Tab Headers -->
+          <div class="course-tabs" role="tablist">
+            <button class="tab-btn active" data-tab="overview" role="tab" id="tab-btn-overview">Overview</button>
+            <button class="tab-btn" data-tab="curriculum" role="tab" id="tab-btn-curriculum">Curriculum</button>
+            <button class="tab-btn" data-tab="instructor" role="tab" id="tab-btn-instructor">Instructor</button>
+            <button class="tab-btn" data-tab="reviews" role="tab" id="tab-btn-reviews">Reviews</button>
+          </div>
+
+          <!-- Tab 1: Overview -->
+          <div class="tab-panel active" id="tab-overview" role="tabpanel">
+            <h3 style="margin-bottom: 1rem;">About This Course</h3>
+            <p id="overview-text" style="line-height: 1.8; margin-bottom: 2rem; font-size: 1.05rem;">
+              Course overview will appear here.
+            </p>
+
+            <h4 style="margin-bottom: 1rem;">What You Will Learn</h4>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2.5rem;">
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="color: var(--success); font-weight: bold; font-size: 1.1rem;">✓</span>
+                <span style="font-size: 0.9375rem; color: var(--slate-700);">Industry-standard architecture patterns & real production code</span>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="color: var(--success); font-weight: bold; font-size: 1.1rem;">✓</span>
+                <span style="font-size: 0.9375rem; color: var(--slate-700);">Hands-on interactive labs and capstone portfolio projects</span>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="color: var(--success); font-weight: bold; font-size: 1.1rem;">✓</span>
+                <span style="font-size: 0.9375rem; color: var(--slate-700);">Cryptographically verified diploma upon 100% completion</span>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="color: var(--success); font-weight: bold; font-size: 1.1rem;">✓</span>
+                <span style="font-size: 0.9375rem; color: var(--slate-700);">Lifetime access to curriculum updates and reference repositories</span>
+              </div>
+            </div>
+
+            <h4 style="margin-bottom: 1rem;">Prerequisites & Requirements</h4>
+            <ul style="list-style: disc; margin-left: 1.5rem; color: var(--slate-600); font-size: 0.9375rem; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li>A laptop or desktop computer with internet access</li>
+              <li>Basic familiarity with computer operating systems and web browsers</li>
+              <li>No advanced domain background strictly required — beginner concepts start from ground zero</li>
+            </ul>
+          </div>
+
+          <!-- Tab 2: Curriculum -->
+          <div class="tab-panel" id="tab-curriculum" role="tabpanel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <h3>Course Syllabus</h3>
+              <span id="curriculum-count" style="font-size: 0.875rem; color: var(--slate-500);">0 lessons</span>
+            </div>
+            <ul class="curriculum-list" id="curriculum-lessons-list">
+              <!-- Dynamically populated via courses.js -->
+            </ul>
+          </div>
+
+          <!-- Tab 3: Instructor -->
+          <div class="tab-panel" id="tab-instructor" role="tabpanel">
+            <div style="display: flex; gap: 1.75rem; align-items: flex-start; flex-wrap: wrap;">
+              <img id="instructor-avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-light);" alt="Instructor" />
+              <div style="flex: 1; min-width: 260px;">
+                <h3 id="instructor-name" style="margin-bottom: 0.25rem;">Instructor Name</h3>
+                <span class="badge badge-category" style="margin-bottom: 1rem;">Senior Faculty Specialist</span>
+                <p id="instructor-bio" style="line-height: 1.7; font-size: 0.95rem; color: var(--slate-700);">
+                  Instructor biography and background.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 4: Reviews -->
+          <div class="tab-panel" id="tab-reviews" role="tabpanel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3>Student Feedback</h3>
+                <p class="text-muted">Verified reviews from enrolled students.</p>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="openModal('modal-write-review')" id="btn-write-review-trigger">
+                Write a Review
+              </button>
+            </div>
+
+            <!-- Rating Breakdown Row -->
+            <div style="background: var(--slate-50); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 2rem; border: 1px solid var(--border-light);">
+              <div style="font-weight: 700; margin-bottom: 0.75rem;">Rating Distribution</div>
+              <div id="reviews-breakdown-bars">
+                <!-- Injected via courses.js -->
+              </div>
+            </div>
+
+            <!-- Reviews List -->
+            <div id="reviews-list">
+              <!-- Injected via courses.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Enroll Card on Right -->
+        <aside class="sticky-enroll-box" aria-label="Course Enrollment Box">
+          <div class="enroll-box-thumb">
+            <img id="enroll-box-thumb-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=380&fit=crop" alt="Course Thumbnail" />
+          </div>
+          <div class="enroll-box-body">
+            <div id="enroll-box-price" style="margin-bottom: 1.25rem;">
+              <span class="price-current">$0.00</span>
+            </div>
+
+            <button class="btn btn-primary btn-block btn-lg" id="btn-enroll-action" style="margin-bottom: 1.25rem;">
+              Enroll in Course
+            </button>
+
+            <div style="font-size: 0.8125rem; color: var(--slate-500); text-align: center; margin-bottom: 1.5rem;">
+              30-Day Money-Back Guarantee • Full Lifetime Access
+            </div>
+
+            <div style="border-top: 1px solid var(--border-light); padding-top: 1.25rem;">
+              <div style="font-weight: 700; font-size: 0.875rem; margin-bottom: 0.75rem;">This course includes:</div>
+              <ul style="list-style: none; font-size: 0.8125rem; color: var(--slate-600); display: flex; flex-direction: column; gap: 0.6rem;">
+                <li style="display: flex; align-items: center; gap: 0.5rem;">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  On-demand video & interactive reading modules
+                </li>
+                <li style="display: flex; align-items: center; gap: 0.5rem;">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  Coding exercises & knowledge quizzes
+                </li>
+                <li style="display: flex; align-items: center; gap: 0.5rem;">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                  Certificate of Completion
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Review Modal -->
+  <div class="modal-overlay" id="modal-write-review">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>Write a Review</h3>
+        <button class="modal-close" onclick="closeModal('modal-write-review')">&times;</button>
+      </div>
+      <form id="form-submit-review">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Your Rating (1 to 5 Stars)</label>
+            <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem;">
+              <label style="cursor: pointer;"><input type="radio" name="rating" value="5" checked /> ★ 5 Stars</label>
+              <label style="cursor: pointer;"><input type="radio" name="rating" value="4" /> ★ 4 Stars</label>
+              <label style="cursor: pointer;"><input type="radio" name="rating" value="3" /> ★ 3 Stars</label>
+              <label style="cursor: pointer;"><input type="radio" name="rating" value="2" /> ★ 2 Stars</label>
+              <label style="cursor: pointer;"><input type="radio" name="rating" value="1" /> ★ 1 Star</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="review-comment" class="form-label">Your Review Feedback</label>
+            <textarea id="review-comment" class="form-control" rows="4" placeholder="What did you think of the instruction quality and curriculum exercises?" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost btn-sm" onclick="closeModal('modal-write-review')">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Submit Review</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding-top: 0;">
+        <div>&copy; 2025 EduLearn Platform. Built with Python Flask & MySQL.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Catalog</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/courses.js"></script>
+</body>
+</html>

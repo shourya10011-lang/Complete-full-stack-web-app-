@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Profile - EduLearn</title>
+  <meta name="description" content="Manage your EduLearn profile settings, avatar, and account details." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand" id="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        <span>EduLearn</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Explore Courses</a></li>
+          <li><a href="dashboard.html">My Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-auth" id="navbar-auth">
+        <!-- Injected dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <main class="section" style="padding-top: 2.5rem;">
+    <div class="container" style="max-width: 800px;">
+      <!-- Breadcrumb & Header -->
+      <div style="margin-bottom: 2rem;">
+        <div style="font-size: 0.875rem; color: var(--slate-500); margin-bottom: 0.5rem;">
+          <a href="dashboard.html">Dashboard</a> &gt; <span style="color: var(--slate-800); font-weight: 600;">Account Profile</span>
+        </div>
+        <h1 style="font-size: 2.25rem;">Student Profile Settings</h1>
+        <p>Update your personal information, public profile, and avatar displayed across courses and reviews.</p>
+      </div>
+
+      <div class="card" style="padding: 2.5rem; border-radius: var(--radius-xl);">
+        <form id="profile-form">
+          <!-- Avatar Preview & Input -->
+          <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-light); flex-wrap: wrap;">
+            <img id="profile-avatar-preview" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-100);" alt="Profile Avatar" />
+            <div style="flex: 1; min-width: 250px;">
+              <label for="profile-avatar-url" class="form-label">Profile Image URL</label>
+              <input type="url" id="profile-avatar-url" class="form-control" placeholder="https://images.unsplash.com/photo-..." />
+              <span style="font-size: 0.75rem; color: var(--slate-500); margin-top: 0.25rem; display: block;">Paste any valid HTTPS image address for your avatar.</span>
+            </div>
+          </div>
+
+          <!-- Name & Email Row -->
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label for="profile-name" class="form-label">Full Name</label>
+              <input type="text" id="profile-name" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label for="profile-email" class="form-label">Email Address</label>
+              <input type="email" id="profile-email" class="form-control" disabled style="background: var(--slate-50); cursor: not-allowed;" />
+              <span style="font-size: 0.75rem; color: var(--slate-400); margin-top: 0.25rem; display: block;">Email cannot be modified directly.</span>
+            </div>
+          </div>
+
+          <!-- Account Meta Badges -->
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+            <div style="background: var(--slate-50); padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-size: 0.8125rem;">
+              <span class="text-muted">Account Role:</span> <strong id="profile-role" style="color: var(--primary-700);">STUDENT</strong>
+            </div>
+            <div style="background: var(--slate-50); padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-size: 0.8125rem;">
+              <span class="text-muted">Member Since:</span> <strong id="profile-joined">Jan 10, 2025</strong>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div class="form-group">
+            <label for="profile-bio" class="form-label">Biography</label>
+            <textarea id="profile-bio" class="form-control" rows="4" placeholder="Tell other students and instructors a bit about your background and technical goals..."></textarea>
+          </div>
+
+          <!-- Actions -->
+          <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
+            <a href="dashboard.html" class="btn btn-ghost btn-md">Cancel</a>
+            <button type="submit" class="btn btn-primary btn-md" id="btn-save-profile">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding-top: 0;">
+        <div>&copy; 2025 EduLearn Platform. Built with Python Flask & MySQL.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Catalog</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

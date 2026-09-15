@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduLearn</title>
+  <meta property="og:title" content="EduLearn" />
+  <meta name="description" content="A complete, production-quality e-learning platform with courses, lessons, progress tracking, reviews, and certificates." />
+  <meta property="og:description" content="A complete, production-quality e-learning platform with courses, lessons, progress tracking, reviews, and certificates." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand" id="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        <span>EduLearn</span>
+      </a>
+
+      <!-- Navbar Search -->
+      <form action="courses.html" method="GET" class="navbar-search" id="navbar-search-form">
+        <svg class="navbar-search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" name="search" placeholder="Search courses, skills, topics..." aria-label="Search courses" />
+      </form>
+
+      <!-- Nav Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="navbar-nav">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="courses.html">Explore Courses</a></li>
+          <li><a href="courses.html?category=Web%20Development">Development</a></li>
+          <li><a href="courses.html?category=Data%20Science">Data Science</a></li>
+        </ul>
+      </nav>
+
+      <!-- Auth State Container -->
+      <div class="navbar-auth" id="navbar-auth">
+        <!-- Dynamically injected by auth.js -->
+        <a href="login.html" class="btn btn-ghost btn-sm">Log In</a>
+        <a href="login.html?tab=signup" class="btn btn-primary btn-sm">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge badge-intermediate" style="margin-bottom: 1rem;">Over 15,000+ Active Students</span>
+          <h1>Master High-Impact Technical Skills from Industry Leaders</h1>
+          <p>Advance your career with interactive, project-grounded curriculums in full-stack engineering, neural networks, design systems, and venture growth.</p>
+          <div class="hero-actions">
+            <a href="courses.html" class="btn btn-primary btn-lg" id="hero-cta-explore">
+              Explore All Courses
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="login.html?tab=signup" class="btn btn-secondary btn-lg" id="hero-cta-trial">Start Free Preview</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=540&fit=crop" class="hero-image" alt="Collaborative learning at EduLearn" />
+          <div class="hero-badge-float">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #ecfdf5; color: #059669; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">★</div>
+            <div>
+              <div style="font-weight: 700; font-size: 1rem; color: var(--slate-900);">4.9 / 5.0 Average Rating</div>
+              <div style="font-size: 0.8125rem; color: var(--slate-500);">From 2,800+ verified alumni reviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar" aria-label="Platform Statistics">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <h3>15,000+</h3>
+          <p>Graduates Placed Globally</p>
+        </div>
+        <div class="stat-item">
+          <h3>12</h3>
+          <p>Production Masterclasses</p>
+        </div>
+        <div class="stat-item">
+          <h3>98%</h3>
+          <p>Course Completion Rate</p>
+        </div>
+        <div class="stat-item">
+          <h3>100%</h3>
+          <p>Verified Digital Diplomas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section class="section">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="badge badge-category" style="margin-bottom: 0.5rem;">Curated Curriculum</span>
+            <h2>Featured Masterclasses</h2>
+            <p>Hand-crafted by experienced practitioners with production codebases.</p>
+          </div>
+          <a href="courses.html" class="btn btn-outline btn-sm">Browse All 12 Courses &rarr;</a>
+        </div>
+
+        <div class="category-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 1rem;" id="featured-courses-grid">
+          <!-- Dynamically populated via courses.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Browse by Category -->
+    <section class="section" style="background: white; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="badge badge-category" style="margin-bottom: 0.5rem;">Explore Specializations</span>
+          <h2>Learn by Disciplines</h2>
+          <p>Choose an intensive career track tailored to modern industry demands.</p>
+        </div>
+
+        <div class="category-grid">
+          <a href="courses.html?category=Web%20Development" class="category-card" id="cat-card-webdev">
+            <div class="category-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h4>Web Development</h4>
+            <p class="text-muted" style="font-size: 0.8125rem;">JavaScript, TypeScript, Modern CSS & Architecture</p>
+          </a>
+
+          <a href="courses.html?category=Data%20Science" class="category-card" id="cat-card-datasci">
+            <div class="category-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h4>Data Science</h4>
+            <p class="text-muted" style="font-size: 0.8125rem;">Python, Machine Learning, Neural Networks & SQL</p>
+          </a>
+
+          <a href="courses.html?category=UI/UX%20Design" class="category-card" id="cat-card-uiux">
+            <div class="category-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            </div>
+            <h4>UI/UX Design</h4>
+            <p class="text-muted" style="font-size: 0.8125rem;">Figma Auto-Layout, Usability Labs & Design Tokens</p>
+          </a>
+
+          <a href="courses.html?category=Business%20%26%20Marketing" class="category-card" id="cat-card-business">
+            <div class="category-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="12 6 12 12 16 14"></polygon></svg>
+            </div>
+            <h4>Business & Marketing</h4>
+            <p class="text-muted" style="font-size: 0.8125rem;">Growth Funnels, Product Roadmaps & Cap Tables</p>
+          </a>
+
+          <a href="courses.html?category=English%20Language" class="category-card" id="cat-card-english" style="border-color: rgba(239, 68, 68, 0.3);">
+            <div class="category-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <h4 style="margin: 0;">English Language</h4>
+              <span class="badge" style="background: rgba(239, 68, 68, 0.15); color: #dc2626; font-size: 0.68rem; font-weight: 700;">YouTube Series</span>
+            </div>
+            <p class="text-muted" style="font-size: 0.8125rem; margin-top: 0.35rem;">Spoken Fluency, BBC Curated Series & Pronunciation</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student Testimonials -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="badge badge-category" style="margin-bottom: 0.5rem;">Student Success</span>
+          <h2>Trusted by Curious Minds Everywhere</h2>
+          <p>Real outcomes from students who accelerated their career trajectories.</p>
+        </div>
+
+        <div class="category-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="card" style="padding: 2rem;">
+            <div class="rating-stars" style="margin-bottom: 1rem;">★★★★★</div>
+            <p style="font-size: 0.9375rem; color: var(--slate-700); margin-bottom: 1.5rem; line-height: 1.6;">
+              "The Full-Stack Bootcamp gave me the exact confidence I needed to pass technical screening at high-growth startups. The instructor breaks down complex APIs with utmost clarity."
+            </p>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" style="width: 42px; height: 42px; border-radius: 50%;" alt="Alex Morgan" />
+              <div>
+                <strong style="display: block; font-size: 0.9375rem;">Alex Morgan</strong>
+                <span class="text-muted" style="font-size: 0.8125rem;">Software Engineer, Alumni</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 2rem;">
+            <div class="rating-stars" style="margin-bottom: 1rem;">★★★★★</div>
+            <p style="font-size: 0.9375rem; color: var(--slate-700); margin-bottom: 1.5rem; line-height: 1.6;">
+              "Figma from Scratch and Design Systems were pure gold. Emily Chen teaches design systems exactly as they function in large-scale multi-brand product orgs."
+            </p>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" style="width: 42px; height: 42px; border-radius: 50%;" alt="Elena Rostova" />
+              <div>
+                <strong style="display: block; font-size: 0.9375rem;">Elena Rostova</strong>
+                <span class="text-muted" style="font-size: 0.8125rem;">Product Designer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 2rem;">
+            <div class="rating-stars" style="margin-bottom: 1rem;">★★★★★</div>
+            <p style="font-size: 0.9375rem; color: var(--slate-700); margin-bottom: 1.5rem; line-height: 1.6;">
+              "Dr. Rivera's machine learning and deep learning courses are the best technical content on the web. No hand-waving, just solid algorithmic mathematical intuition."
+            </p>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100" style="width: 42px; height: 42px; border-radius: 50%;" alt="David Kim" />
+              <div>
+                <strong style="display: block; font-size: 0.9375rem;">David Kim</strong>
+                <span class="text-muted" style="font-size: 0.8125rem;">Data Analyst</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="section" style="padding: 0 0 5rem;">
+      <div class="container">
+        <div style="background: linear-gradient(135deg, var(--primary-700) 0%, var(--accent-600) 100%); border-radius: var(--radius-xl); padding: 4rem 3rem; text-align: center; color: white;">
+          <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">Ready to Accelerate Your Career?</h2>
+          <p style="color: var(--primary-100); max-width: 600px; margin: 0 auto 2rem; font-size: 1.125rem;">
+            Enroll in our top-rated courses today and gain access to lifetime updates, project repositories, and accredited digital certificates.
+          </p>
+          <a href="courses.html" class="btn btn-secondary btn-lg" style="background: white; color: var(--primary-700); font-weight: 700;">
+            Browse All Masterclasses
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">EduLearn</div>
+          <p style="font-size: 0.9375rem; color: var(--slate-400); max-width: 320px; margin-bottom: 1.5rem;">
+            Production-quality education platform delivering real engineering and design capabilities.
+          </p>
+          <div style="display: flex; gap: 0.75rem;">
+            <span class="badge badge-category" style="background: var(--slate-800); color: var(--slate-300);">Python Flask API</span>
+            <span class="badge badge-category" style="background: var(--slate-800); color: var(--slate-300);">MySQL Database</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="courses.html?category=Web%20Development">Web Development</a></li>
+            <li><a href="courses.html?category=Data%20Science">Data Science</a></li>
+            <li><a href="courses.html?category=UI/UX%20Design">UI/UX Design</a></li>
+            <li><a href="courses.html?category=Business%20%26%20Marketing">Business & Marketing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="courses.html">Course Catalog</a></li>
+            <li><a href="dashboard.html">Student Dashboard</a></li>
+            <li><a href="login.html">Sign In / Register</a></li>
+            <li><a href="profile.html">Student Profile</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Verified Credentials</h4>
+          <p style="font-size: 0.875rem; color: var(--slate-400); margin-bottom: 1rem;">
+            Every course completion generates a cryptographic certificate code verifiable on any resume or LinkedIn profile.
+          </p>
+          <a href="dashboard.html" class="btn btn-outline btn-sm" style="color: white; border-color: var(--slate-600);">View Certificates</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2025 EduLearn Platform. All rights reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/courses.js"></script>
+</body>
+</html>

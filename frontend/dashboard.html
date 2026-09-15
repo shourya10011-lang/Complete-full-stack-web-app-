@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard - EduLearn</title>
+  <meta name="description" content="View your active learning tracks, track course completion progress, and view verified certificates." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand" id="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        <span>EduLearn</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Explore Courses</a></li>
+          <li><a href="dashboard.html" class="active">My Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-auth" id="navbar-auth">
+        <!-- Injected dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <main class="section" style="padding-top: 2.5rem;">
+    <div class="container">
+      <!-- Welcome Header -->
+      <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="badge badge-verified" style="margin-bottom: 0.5rem;">Student Portal</span>
+          <h1 style="font-size: 2.25rem;">Welcome back, <span id="dashboard-user-name">Student</span>!</h1>
+          <p>Pick up where you left off and keep building your skills.</p>
+        </div>
+        <div>
+          <a href="courses.html" class="btn btn-primary btn-sm">+ Enroll in New Course</a>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="category-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 2.5rem;" id="dashboard-stats-grid">
+        <!-- Injected via dashboard.js -->
+      </div>
+
+      <!-- In-Progress Courses Section -->
+      <section style="margin-bottom: 3rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h2 style="font-size: 1.5rem;">Continue Learning</h2>
+          <span class="text-muted" style="font-size: 0.875rem;">Active courses</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;" id="dashboard-in-progress-list">
+          <div class="skeleton skeleton-card" style="height: 100px;"></div>
+        </div>
+      </section>
+
+      <!-- Completed Courses Section -->
+      <section style="margin-bottom: 3rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h2 style="font-size: 1.5rem;">Completed Masterclasses</h2>
+          <span class="text-muted" style="font-size: 0.875rem;">100% Progress</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;" id="dashboard-completed-list">
+          <!-- Injected via dashboard.js -->
+        </div>
+      </section>
+
+      <!-- Certificates Section -->
+      <section style="margin-bottom: 3.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h2 style="font-size: 1.5rem;">Verified Certificates</h2>
+          <span class="text-muted" style="font-size: 0.875rem;">Shareable digital diplomas</span>
+        </div>
+        <div class="category-grid" style="grid-template-columns: repeat(3, 1fr);" id="dashboard-certificates-list">
+          <!-- Injected via dashboard.js -->
+        </div>
+      </section>
+
+      <!-- Recommended Courses Section -->
+      <section>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1.5rem;">Recommended For You</h2>
+            <p class="text-muted">Expand your technical repertoire with related curriculums.</p>
+          </div>
+          <a href="courses.html" class="btn btn-outline btn-sm">See Full Catalog</a>
+        </div>
+        <div class="category-grid" style="grid-template-columns: repeat(3, 1fr);" id="dashboard-recommended-grid">
+          <!-- Injected via dashboard.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Certificate View Modal -->
+  <div class="modal-overlay" id="modal-certificate-view">
+    <div class="modal-dialog" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3>Certificate of Completion</h3>
+        <button class="modal-close" onclick="closeModal('modal-certificate-view')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="border: 4px double #d97706; padding: 2.5rem 2rem; text-align: center; background: #fffdfa; border-radius: var(--radius-md);">
+          <div style="font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: #b45309; font-weight: 800; margin-bottom: 0.75rem;">
+            EduLearn Global Academy
+          </div>
+          <h2 style="font-size: 1.8rem; font-family: serif; color: var(--slate-900); margin-bottom: 0.5rem;">
+            Certificate of Accomplishment
+          </h2>
+          <p style="font-size: 0.875rem; color: var(--slate-500); margin-bottom: 1.25rem;">This certifies that</p>
+          <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-700); border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 0.25rem; margin-bottom: 1.25rem;" id="cert-modal-recipient">
+            Alex Morgan
+          </div>
+          <p style="font-size: 0.9375rem; color: var(--slate-600); margin-bottom: 0.5rem;">has successfully completed with distinction all requirements for:</p>
+          <h3 style="font-size: 1.25rem; color: var(--slate-800); margin-bottom: 1.5rem;" id="cert-modal-course">
+            Full-Stack Web Development Bootcamp
+          </h3>
+
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid #e2e8f0; padding-top: 1.25rem; margin-top: 1.5rem; font-size: 0.8125rem; color: var(--slate-500);">
+            <div>
+              <div>Issued on: <strong id="cert-modal-date">Jan 15, 2025</strong></div>
+              <div>Instructor: <strong id="cert-modal-instructor">Sarah Jenkins</strong></div>
+            </div>
+            <div style="text-align: right;">
+              <div>Certificate ID:</div>
+              <div style="font-family: monospace; font-weight: bold; color: var(--slate-700);" id="cert-modal-code">EDU-CERT-XXXXX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('modal-certificate-view')">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding-top: 0;">
+        <div>&copy; 2025 EduLearn Platform. Built with Python Flask & MySQL.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Catalog</a>
+          <a href="profile.html">Profile</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/courses.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

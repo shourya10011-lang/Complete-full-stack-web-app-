@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In & Register - EduLearn</title>
+  <meta name="description" content="Access your student account or create a new profile on EduLearn." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body style="background: var(--slate-100); min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Simple Header -->
+  <header style="padding: 1.5rem 0; background: white; border-bottom: 1px solid var(--border-light);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="navbar-brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        <span>EduLearn</span>
+      </a>
+      <a href="courses.html" class="btn btn-ghost btn-sm">Explore Courses</a>
+    </div>
+  </header>
+
+  <!-- Auth Card Centerpiece -->
+  <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 3rem 1rem;">
+    <div class="card" style="width: 100%; max-width: 480px; padding: 2.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+      <!-- Tab Headers -->
+      <div style="display: flex; border-bottom: 2px solid var(--border-light); margin-bottom: 2rem;">
+        <button id="tab-login" class="tab-btn active" style="flex: 1; text-align: center; padding: 0.75rem 0; font-size: 1rem;">
+          Sign In
+        </button>
+        <button id="tab-signup" class="tab-btn" style="flex: 1; text-align: center; padding: 0.75rem 0; font-size: 1rem;">
+          Create Account
+        </button>
+      </div>
+
+      <!-- Quick Demo Login Presets -->
+      <div style="background: #f0fdf4; border: 1px dashed #86efac; padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.75rem;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #15803d; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.5rem;">One-Click Demo Credentials</span>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-demo-student" style="flex: 1; font-size: 0.8125rem;">
+            Demo Student
+          </button>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-demo-instructor" style="flex: 1; font-size: 0.8125rem;">
+            Demo Instructor
+          </button>
+        </div>
+      </div>
+
+      <!-- Section: LOGIN FORM -->
+      <div id="section-login">
+        <div id="login-error" class="text-danger" style="font-size: 0.875rem; margin-bottom: 1rem; min-height: 1.25rem;"></div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email" class="form-label">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="name@example.com" required autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.375rem;">
+              <label for="login-password" class="form-label" style="margin-bottom: 0;">Password</label>
+              <a href="#" style="font-size: 0.8125rem; color: var(--primary-600);">Forgot password?</a>
+            </div>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required autocomplete="current-password" />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;" id="btn-submit-login">
+            Sign In
+          </button>
+        </form>
+      </div>
+
+      <!-- Section: SIGNUP FORM -->
+      <div id="section-signup" style="display: none;">
+        <div id="signup-error" class="text-danger" style="font-size: 0.875rem; margin-bottom: 1rem; min-height: 1.25rem;"></div>
+
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="signup-name" class="form-label">Full Name</label>
+            <input type="text" id="signup-name" class="form-control" placeholder="Alex Morgan" required autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="signup-email" class="form-label">Email Address</label>
+            <input type="email" id="signup-email" class="form-control" placeholder="name@example.com" required autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label for="signup-password" class="form-label">Password</label>
+            <input type="password" id="signup-password" class="form-control" placeholder="At least 6 characters" required autocomplete="new-password" minlength="6" />
+          </div>
+
+          <div class="form-group">
+            <label for="signup-role" class="form-label">Primary Account Goal</label>
+            <select id="signup-role" class="form-control">
+              <option value="student">Student (Learn new skills & earn certificates)</option>
+              <option value="instructor">Instructor (Publish & teach masterclasses)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;" id="btn-submit-signup">
+            Create Account
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Simple Footer -->
+  <footer style="padding: 1.5rem 0; text-align: center; font-size: 0.8125rem; color: var(--slate-500);">
+    <div>&copy; 2025 EduLearn Platform. Built with Python Flask & MySQL.</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

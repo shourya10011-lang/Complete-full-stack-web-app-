@@ -1,0 +1,6 @@
+{
+  "name": "EduLearn",
+  "description": "A complete, production-quality e-learning platform with courses, lessons, progress tracking, reviews, and certificates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
